@@ -1,0 +1,127 @@
+---
+title: 'Building an API Gateway with Nginx + Lua'
+date: 2021-02-03
+tags: [Post]
+draft: false
+excerpt: 'Nginx could be used to create an api gateway that processes requests in an event-driven manner'
+type: post
+category: blog
+---
+
+### Building an API Gateway with Nginx + Lua
+
+Nginx is a web server that can also be used as a reverse proxy, load balancer, mail proxy, and HTTP cache. Nginx could be used to create an API Gateway that processes requests in an event-driven manner, handling queries to the server in a quick, low-resource-footprint manner as they come in. Further, it reduces complexity and maximizes the performance by reducing the average response time to serve an API call.  
+
+Most of us are already familiar with Kong but, I wanted to explore the possibility of using OpenResty to build an API Gateway.
+
+### <U>Implementation</U>
+The first thing we need to do is to install OpenResty. OpenResty gives us the capability of scripting Nginx using Lua.  
+
+Once installed, you should navigate to your browser and type http://localhost. If everything goes well, you will see the below screenshot:
+
+
+<!-- ![OpenResty Welcome!](welcome.png "OpenResty Welcome") -->
+
+With this, you have successfully installed OpenResty along with Nginx.  
+
+Now, we need to edit the __*nginx.conf*__ file. You can find the nginx.conf file in the below locations:  
+
+- *Ubuntu : /usr/local/openresty/nginx/conf*
+- *Mac: /usr/local/Cellar/openresty/nginx/conf (using homebrew)*
+
+Note: You can also add the configuration in a new file and include it in __*nginx.conf*__.
+
+<!-- ![API Gateway with Nginx and Lua!](diagram.png "API Gateway with Nginx and Lua") -->
+
+For a basic API gateway, there are two important operations that it should perform:
+
+1. __Routing__
+2. __Authentication__
+
+### <U>Routing</U>
+To route the endpoints to their respective servers, all you need to do is:
+
+```nginx:title=/nginx.conf
+location /api/test {
+    proxy_pass http://localhost:8080/api/test;
+}
+```
+
+### <U>Authentication</U>
+
+To perform authentication, I will be using JWT. To do that, we need to install the __lua-resty-jwt__ library using __OPM(OpenResty Package Manager)__.
+
+```bash
+opm get SkyLothar/lua-resty-jwt
+```
+
+Next, create a __*jwt-auth.lua*__ in */usr/local/openresty/lualib/resty* (Ubuntu) and copy the below code:
+
+```lua:title=/jwt-auth.lua
+local jwt = require 'resty.jwt'
+local validators = require 'resty.jwt-validators'
+
+if ngx.var.request_method ~= 'OPTIONS' and not string.match(ngx.var.uri, 'login') then
+
+  local jwtToken = ngx.var.http_Authorization
+
+  if jwtToken == nil then
+    ngx.status = ngx.HTTP_UNAUTHORIZED
+    ngx.header.content_type = 'application/json; charset=utf-8'
+    ngx.say('{\'error\': \'Forbidden\'}')
+    ngx.exit(ngx.HTTP_UNAUTHORIZED)
+  end
+
+  local claim_spec = {
+    exp = validators.is_not_expired()
+  }
+  
+  local jwt_obj = jwt:verify(‘secret’, jwtToken, claim_spec)
+  
+  if not jwt_obj['verified'] then
+    ngx.status = ngx.HTTP_UNAUTHORIZED
+    ngx.header.content_type = 'application/json; charset=utf-8'
+    ngx.say('{\'error\': \'INVALID_JWT\'}')
+    ngx.exit(ngx.HTTP_UNAUTHORIZED)
+  end
+
+end
+```
+
+The above Lua code does the following:
+
+1. It forwards the request to the next line of execution if it is an OPTIONS call or a login API.
+2. Otherwise, it fetches the JWT token in the Authorization header. If the token is not present, the code returns ‘FORBIDDEN’.
+3. This JWT token is then validated for authenticity and expiry date.
+4. Once the token is validated, it forwards the request to the respective service. Else, it returns ‘INVALID_JWT’.
+
+Include the above file in your __*nginx.conf*__.
+
+```nginx:title=/nginx.conf
+location /api/test {
+    access_by_lua_file /usr/local/openresty/lualib/resty/jwt_auth.lua;
+    proxy_pass http://localhost:8080/api/test;
+}
+```
+
+That’s it. You have added JWT authentication on Nginx.
+
+### <U>Testing</U>
+
+To check the changes we have made, restart __OpenResty__ using the below command
+
+```bash
+sudo service openresty restart
+```
+
+Once you restart, hit the API using Postman or any other REST client and validate the response.
+
+__*Tip:*__ *You can generate JWT tokens using this website: http://jwtbuilder.jamiekurtz.com/*
+
+### <U>Todo</U>
+
+We can improve our auth script by doing the following:
+
+1. A mechanism to add new API endpoints that don’t need a JWT token like downloads API.
+2. Currently, JWT secret token is hardcoded in the script. Maybe we could set it as an environment variable to make it dynamic.
+
