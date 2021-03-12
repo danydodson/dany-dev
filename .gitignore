@@ -1,6 +1,6 @@
 # other
 _implement
-
+.env
 # **/.vscode
 **/certs/*
 
