@@ -1,5 +1,5 @@
 import React from 'react'
-import config from '../../../content/meta/config'
+import siteConfig from '../../../data/site-config'
 import { EmailShareButton, FacebookShareButton, RedditShareButton, TwitterShareButton, LinkedinShareButton, EmailIcon, FacebookIcon, RedditIcon, TwitterIcon, LinkedinIcon } from 'react-share'
 
 import './styles.scss'
@@ -7,27 +7,27 @@ import './styles.scss'
 const ShareButtons = ({ location }) => {
   return (
     <div className='share-buttons-wrap'>
-      {config.shareButtons.email && (
+      {siteConfig.shareButtons.email && (
         <EmailShareButton url={location}>
           <EmailIcon round size={32} />
         </EmailShareButton>
       )}
-      {config.shareButtons.facebook && (
+      {siteConfig.shareButtons.facebook && (
         <FacebookShareButton url={location}>
           <FacebookIcon round size={32} />
         </FacebookShareButton>
       )}
-      {config.shareButtons.twitter && (
+      {siteConfig.shareButtons.twitter && (
         <TwitterShareButton url={location}>
           <TwitterIcon round size={32} />
         </TwitterShareButton>
       )}
-      {config.shareButtons.reddit && (
+      {siteConfig.shareButtons.reddit && (
         <RedditShareButton url={location}>
           <RedditIcon round size={32} />
         </RedditShareButton>
       )}
-      {config.shareButtons.linkedIn && (
+      {siteConfig.shareButtons.linkedIn && (
         <LinkedinShareButton url={location}>
           <LinkedinIcon round size={32} />
         </LinkedinShareButton>

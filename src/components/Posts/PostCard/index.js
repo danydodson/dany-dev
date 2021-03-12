@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { setThemeVars } from '../../../util/theme-helper'
 import { theme } from '../../Shared/styles-global'
-import config from '../../../../content/meta/config'
+import siteConfig from '../../../../data/site-config'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock } from '@fortawesome/free-solid-svg-icons'
 
@@ -13,7 +13,7 @@ const PostCard = ({ id, title, date, path, excerpt, timeToRead }) => {
       <Link to={path}>
         <StyledPostCard key={id}>
           <h3>{title}</h3>
-          {config.showTimeToRead && (
+          {siteConfig.showTimeToRead && (
             <span>
               <FontAwesomeIcon className='icon-clock' icon={faClock} size='xs' />
               {timeToRead} minute read

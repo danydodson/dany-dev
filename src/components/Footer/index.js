@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-import config from '../../../content/meta/config'
-import RSS from '../../../static/svgs/rss.svg'
+import siteConfig from '../../../data/site-config'
+import RSS from '../../../static/media/svgs/rss.svg'
 import { setThemeVars } from '../../util/theme-helper'
 
 const Footer = () => {
@@ -11,8 +11,8 @@ const Footer = () => {
       <div />
       <div>
         <span>© {new Date().getFullYear()} </span>
-        <StyledA href={config.footerLink} target='_blank' rel='noopener noreferrer'>
-          {config.author}
+        <StyledA href={siteConfig.footerLink} target='_blank' rel='noopener noreferrer'>
+          {siteConfig.author}
         </StyledA>
       </div>
       <Link to='/rss.xml'>

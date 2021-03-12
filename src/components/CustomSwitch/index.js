@@ -3,8 +3,8 @@ import Switch from 'react-switch'
 import { withTheme } from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMoon } from '@fortawesome/free-solid-svg-icons'
-import SunIcon from '../../../static/svgs/sun.svg'
-import config from '../../../content/meta/config'
+import SunIcon from '../../../static/media/svgs/sun.svg'
+import siteConfig from '../../../data/site-config'
 
 import './styles.scss'
 
@@ -12,7 +12,7 @@ class CustomSwitch extends Component {
   constructor(props) {
     super(props)
 
-    if (config.defaultTheme === 'dark') {
+    if (siteConfig.defaultTheme === 'dark') {
       this.state = { checked: true }
     } else {
       this.state = { checked: false }

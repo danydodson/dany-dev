@@ -4,10 +4,10 @@ import PropTypes from 'prop-types'
 import { theme } from '../../Shared/styles-global'
 import { setThemeVars } from '../../../util/theme-helper'
 // Icons
-import Warning from '../../../../static/svgs/warning.svg'
-import Success from '../../../../static/svgs/success.svg'
-import Info from '../../../../static/svgs/info.svg'
-import Stop from '../../../../static/svgs/stop.svg'
+import Warning from '../../../../static/media/svgs/warning.svg'
+import Success from '../../../../static/media/svgs/success.svg'
+import Info from '../../../../static/media/svgs/info.svg'
+import Stop from '../../../../static/media/svgs/stop.svg'
 
 const TextBlock = ({ theme, children, padding = '2rem 1.5rem' }) => {
   let iconElement

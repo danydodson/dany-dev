@@ -1,7 +1,7 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import config from '../../../content/meta/config'
+import siteConfig from '../../../data/site-config'
 
 const Image = () => {
   const data = useStaticQuery(graphql`
@@ -24,7 +24,7 @@ const Image = () => {
 
   // Loop through all files to find file that matches with image path
   const image = data.images.edges.find((n) => {
-    return n.node.relativePath.includes(config.profileImageName)
+    return n.node.relativePath.includes(siteConfig.profileImageName)
   })
   if (!image) {
     return null

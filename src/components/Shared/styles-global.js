@@ -1,22 +1,22 @@
 import { createGlobalStyle, keyframes } from 'styled-components'
 import { isMobile } from 'react-device-detect'
 import { setThemeVars } from '../../util/theme-helper'
-import config from '../../../content/meta/config'
-import configStyles from '../../../content/meta/styles'
+import siteConfig from '../../../data/site-config'
+import styleConfig from '../../../data/style-config'
 
 const globalVar = {
   primaryColor: '#fff',
   secondaryColor: '#333',
-  bgColorLight: configStyles.bgColorLight,
-  bgColorDark: configStyles.bgColorDark,
-  bgSubColorLight: configStyles.bgSubColorLight,
-  bgSubColorDark: configStyles.bgSubColorDark,
-  headerColorLight: configStyles.headerColorLight,
-  headerColorDark: configStyles.headerColorDark,
-  fontColorLight: configStyles.fontColorLight,
-  fontSubColorLight: configStyles.fontSubColorLight,
-  fontColorDark: configStyles.fontColorDark,
-  fontSubColorDark: configStyles.fontSubColorDark,
+  bgColorLight: styleConfig.bgColorLight,
+  bgColorDark: styleConfig.bgColorDark,
+  bgSubColorLight: styleConfig.bgSubColorLight,
+  bgSubColorDark: styleConfig.bgSubColorDark,
+  headerColorLight: styleConfig.headerColorLight,
+  headerColorDark: styleConfig.headerColorDark,
+  fontColorLight: styleConfig.fontColorLight,
+  fontSubColorLight: styleConfig.fontSubColorLight,
+  fontColorDark: styleConfig.fontColorDark,
+  fontSubColorDark: styleConfig.fontSubColorDark,
   darkColor: '#333',
   midColor: '#444',
   darkerColor: '#2c2c39',
@@ -24,7 +24,7 @@ const globalVar = {
   lightGreyColor: '#eee',
   midGreyColor: '#ccc',
   mintColor: '#bfe2ca',
-  maxWidthSite: config.maxWidth,
+  maxWidthSite: siteConfig.maxWidth,
 
   // @mixin disable-selection()
   disableSelection: `-webkit-touch-callout: none;
@@ -52,13 +52,13 @@ const glowing = keyframes`
 
 const foregroundColor = () => setThemeVars(theme.fontColorLight, theme.fontColorDark)
 
-const scrollBarColor = () => setThemeVars(configStyles.scrollbarColorLight, configStyles.scrollbarColorDark)
+const scrollBarColor = () => setThemeVars(styleConfig.scrollbarColorLight, styleConfig.scrollbarColorDark)
 
-const scrollBarBg = () => setThemeVars(configStyles.scrollbarBgLight, configStyles.scrollbarBgDark)
+const scrollBarBg = () => setThemeVars(styleConfig.scrollbarBgLight, styleConfig.scrollbarBgDark)
 
-const scrollBarHover = () => setThemeVars(configStyles.scrollbarHoverLight, configStyles.scrollbarHoverDark)
+const scrollBarHover = () => setThemeVars(styleConfig.scrollbarHoverLight, styleConfig.scrollbarHoverDark)
 
-const underlineColor = () => setThemeVars(configStyles.underlineColorLight, configStyles.underlineColorDark)
+const underlineColor = () => setThemeVars(styleConfig.underlineColorLight, styleConfig.underlineColorDark)
 
 export const GlobalStyles = createGlobalStyle`
   * {
@@ -66,18 +66,18 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
     transition: background 250ms ease-in, border 250ms ease-in;
-    -ms-overflow-style: ${config.showScrollbar};
+    -ms-overflow-style: ${siteConfig.showScrollbar};
   }
   
   ::-webkit-scrollbar {
-    display: ${config.showScrollbar};
+    display: ${siteConfig.showScrollbar};
   }
 
   body {
     align-items: center;
     background: ${() => setThemeVars(theme.bgSubColorLight, theme.bgSubColorDark)};
     color: ${foregroundColor};
-    font-family: ${configStyles.fontMain + configStyles.fontsBackUp}
+    font-family: ${styleConfig.fontMain + styleConfig.fontsBackUp}
   }
 
   header,
@@ -196,7 +196,7 @@ export const GlobalStyles = createGlobalStyle`
   .progress-container {
     background: ${() => setThemeVars(theme.headerColorLight, theme.headerColorDark)};
     .progress-bar {
-      background: ${() => setThemeVars(configStyles.progressBarColorLight, configStyles.progressBarColorLight)};
+      background: ${() => setThemeVars(styleConfig.progressBarColorLight, styleConfig.progressBarColorLight)};
     }
   }
 
@@ -321,7 +321,7 @@ export const GlobalStyles = createGlobalStyle`
 
   ${'' /* Applies to react live code */}
   .live-highlight {
-      font-family: ${configStyles.fontCodeBlocks + configStyles.fontsBackUp} !important;
+      font-family: ${styleConfig.fontCodeBlocks + styleConfig.fontsBackUp} !important;
   }
 
   ${'' /* Custom scrollbar styling for non mobile */}

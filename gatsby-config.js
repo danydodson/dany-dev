@@ -1,8 +1,8 @@
-const config = require('./content/meta/config')
+const siteConfig = require('./data/site-config')
 const rss = require('./gatsby-rss')
 
 module.exports = {
-  siteMetadata: config,
+  siteMetadata: siteConfig,
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sitemap',
@@ -74,7 +74,7 @@ module.exports = {
           {
             resolve: 'gatsby-remark-images',
             options: {
-              maxWidth: config.maxWidth,
+              maxWidth: siteConfig.maxWidth,
               backgroundColor: 'transparent',
               linkImagesToOriginal: false
             }
@@ -119,7 +119,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: config.gaTrackingId
+        trackingId: siteConfig.gaTrackingId
       }
     },
 
@@ -137,7 +137,7 @@ module.exports = {
           {
             resolve: 'gatsby-remark-images',
             options: {
-              maxWidth: config.maxWidth,
+              maxWidth: siteConfig.maxWidth,
               backgroundColor: 'transparent',
               linkImagesToOriginal: false
             }
@@ -153,7 +153,7 @@ module.exports = {
         short_name: 'blog',
         start_url: '/',
         display: 'minimal-ui',
-        icon: config.faviconSrc // This path is relative to the root of the site.
+        icon: siteConfig.faviconSrc // This path is relative to the root of the site.
       }
     }
   ]

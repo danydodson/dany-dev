@@ -7,8 +7,8 @@ import mediumZoom from 'medium-zoom'
 import storage from 'local-storage-fallback'
 import { isMobile } from 'react-device-detect'
 import { setThemeVars } from '../../../util/theme-helper'
-import { comments } from '../../../../content/meta/config'
-import configStyles from '../../../../content/meta/styles'
+import { comments } from '../../../../data/site-config'
+import styleConfig from '../../../../data/style-config'
 import Layout from '../../Layout'
 import HRuler from '../../HRuler'
 import Profile from '../../Profile'
@@ -18,7 +18,7 @@ import ToggleMode from '../../Layout/ToggleMode'
 import { theme } from '../../Shared/styles-global'
 import LinkEdgePosts from '../../LinkEdgePosts'
 import ShareButtons from '../../ShareButtons'
-import ChevronRight from '../../../../static/svgs/chevron-right.svg'
+import ChevronRight from '../../../../static/media/svgs/chevron-right.svg'
 import { Primary, Danger, Warning, Success, Info, Collapsable, U } from '../../MdxComponents'
 
 class PostTemplate extends React.Component {
@@ -300,7 +300,7 @@ export default PostTemplate
 const StyledHTML = styled.div`
   word-wrap: break-word;
   padding: 1rem;
-  font-family: ${configStyles.fontMain + configStyles.fontsBackUp};
+  font-family: ${styleConfig.fontMain + styleConfig.fontsBackUp};
   margin-top: 1rem;
   font-size: 105%;
 
@@ -373,7 +373,7 @@ const StyledHTML = styled.div`
           width: 0.75rem;
           height: 0.75rem;
           margin-right: 0.5rem;
-          fill: ${() => setThemeVars(configStyles.fontColorLight, configStyles.fontColorDark)};
+          fill: ${() => setThemeVars(styleConfig.fontColorLight, styleConfig.fontColorDark)};
         }
       }
       span.ul-children {

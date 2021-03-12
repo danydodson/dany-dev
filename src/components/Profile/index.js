@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import ProfileTexts from './ProfileTexts'
 import ProfileImg from './ProfileImg'
-import { fontProfile, fontsBackUp } from '../../../content/meta/styles'
+import { fontProfile, fontsBackUp } from '../../../data/style-config'
 
 const Profile = ({ home }) => {
   return (

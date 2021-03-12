@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-import { enableAbout as enabled, author } from '../../../content/meta/config'
+import { enableAbout as enabled, author } from '../../../data/site-config'
 
 const AboutLink = () => {
   return (

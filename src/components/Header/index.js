@@ -8,33 +8,33 @@ import { faGithub, faFacebook, faInstagram, faTwitter, faLinkedin, faMedium } fr
 import HeaderIcon from '../HeaderIcon'
 import ProgressBar from './ProgressBar'
 
-import config from '../../../content/meta/config'
-import configStyles from '../../../content/meta/styles'
+import siteConfig from '../../../data/site-config'
+import styleConfig from '../../../data/style-config'
 
 const Header = ({ siteTitle, showTitle, isPostTemplate }) => {
   return (
     <StyledMainHeader className='main-header'>
       {/* Google AdSense */}
-      {config.googleAdSenseId && config.googleAdSenseId !== '' && <script data-ad-client={config.googleAdSenseId} async src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js' />}
+      {siteConfig.googleAdSenseId && siteConfig.googleAdSenseId !== '' && <script data-ad-client={siteConfig.googleAdSenseId} async src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js' />}
 
-      {isPostTemplate && config.useScrollIndicator && <ProgressBar />}
+      {isPostTemplate && siteConfig.useScrollIndicator && <ProgressBar />}
 
       <StyledMainHeaderInner className='main-header-inner'>
         <h1 style={{ fontSize: '1.5rem' }}>{showTitle && <Link to='/'>{`${siteTitle}`}</Link>}</h1>
         <StyledMediaIcons>
-          <HeaderIcon accountInfo={config.socialMediaLinks.github} mediaName={'github'} preHref={'https://github.com/'} icon={faGithub} />
+          <HeaderIcon accountInfo={siteConfig.socialMediaLinks.github} mediaName={'github'} preHref={'https://github.com/'} icon={faGithub} />
 
-          <HeaderIcon accountInfo={config.socialMediaLinks.email} mediaName={'email'} preHref={'mailto:'} icon={faEnvelope} />
+          <HeaderIcon accountInfo={siteConfig.socialMediaLinks.email} mediaName={'email'} preHref={'mailto:'} icon={faEnvelope} />
 
-          <HeaderIcon accountInfo={config.socialMediaLinks.facebook} mediaName={'facebook'} preHref={'https://facebook.com/'} icon={faFacebook} />
+          <HeaderIcon accountInfo={siteConfig.socialMediaLinks.facebook} mediaName={'facebook'} preHref={'https://facebook.com/'} icon={faFacebook} />
 
-          <HeaderIcon accountInfo={config.socialMediaLinks.instagram} mediaName={'instagram'} preHref={'https://instagram.com/'} icon={faInstagram} />
+          <HeaderIcon accountInfo={siteConfig.socialMediaLinks.instagram} mediaName={'instagram'} preHref={'https://instagram.com/'} icon={faInstagram} />
 
-          <HeaderIcon accountInfo={config.socialMediaLinks.twitter} mediaName={'twitter'} preHref={'https://twitter.com/'} icon={faTwitter} />
+          <HeaderIcon accountInfo={siteConfig.socialMediaLinks.twitter} mediaName={'twitter'} preHref={'https://twitter.com/'} icon={faTwitter} />
 
-          <HeaderIcon accountInfo={config.socialMediaLinks.linkedIn} mediaName={'linkedin'} preHref={'https://linkedin.com/'} icon={faLinkedin} />
+          <HeaderIcon accountInfo={siteConfig.socialMediaLinks.linkedIn} mediaName={'linkedin'} preHref={'https://linkedin.com/'} icon={faLinkedin} />
 
-          <HeaderIcon accountInfo={config.socialMediaLinks.medium} mediaName={'medium'} preHref={'https://medium.com/@'} icon={faMedium} />
+          <HeaderIcon accountInfo={siteConfig.socialMediaLinks.medium} mediaName={'medium'} preHref={'https://medium.com/@'} icon={faMedium} />
         </StyledMediaIcons>
       </StyledMainHeaderInner>
     </StyledMainHeader>
@@ -52,9 +52,9 @@ Header.defaultProps = {
 export default withTheme(Header)
 
 const StyledMainHeader = styled.header`
-  font-family: ${configStyles.fontMain + configStyles.fontsBackUp};
+  font-family: ${styleConfig.fontMain + styleConfig.fontsBackUp};
   height: 55px;
-  margin-top: ${config.useScrollIndicator ? '-5px' : '0'};
+  margin-top: ${siteConfig.useScrollIndicator ? '-5px' : '0'};
   margin-bottom: 1rem;
 `
 
