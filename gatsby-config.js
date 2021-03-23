@@ -155,6 +155,16 @@ module.exports = {
         display: 'minimal-ui',
         icon: siteConfig.faviconSrc // This path is relative to the root of the site.
       }
-    }
+    },
+
+    // 
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        workboxConfig: {
+          maximumFileSizeToCacheInBytes: 10000000
+        },
+      },
+    },
   ]
 }
