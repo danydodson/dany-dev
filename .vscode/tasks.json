@@ -67,9 +67,9 @@
       "problemMatcher": []
     },
     {
-      "label": "Clear",
+      "label": "Restart",
       "type": "shell",
-      "command": "sudo rm -rf node_modules && sudo rm -rf package-lock.json",
+      "command": "sudo rm -rf node_modules package-lock.json",
       "presentation": {
         "echo": true,
         "reveal": "never",

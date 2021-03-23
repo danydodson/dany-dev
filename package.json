@@ -11,10 +11,11 @@
     "clean": "gatsby clean",
     "icons": "sh ./scripts/generate-icons.sh",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "restart": "npm run clean && sudo rm -rf node_modules && sudo rm -rf package-lock.json",
+    "restart": "npm run clean && sudo rm -rf node_modules package-lock.json",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
+    "@babel/core": "7.13.8",
     "@fortawesome/fontawesome-svg-core": "^1.2.27",
     "@fortawesome/free-brands-svg-icons": "^5.12.1",
     "@fortawesome/free-regular-svg-icons": "^5.13.0",
