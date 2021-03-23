@@ -69,7 +69,7 @@
     {
       "label": "Restart",
       "type": "shell",
-      "command": "sudo rm -rf node_modules package-lock.json",
+      "command": "npm run clean && sudo rm -rf node_modules package-lock.json",
       "presentation": {
         "echo": true,
         "reveal": "never",

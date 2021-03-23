@@ -3,6 +3,8 @@
 # Exit the script on any command with non 0 return code
 set -e
 
+echo 'Generating icons...'
+
 npx sharp -i ./src/images/icon.png -o ./static/icons/favicon-16x16.png resize 16
 npx sharp -i ./src/images/icon.png -o ./static/icons/favicon-32x32.png resize 32
 npx sharp -i ./src/images/icon.png -o ./static/icons/favicon-96x96.png resize 96
@@ -22,3 +24,5 @@ npx sharp -i ./src/images/apple-icon.png -o ./static/icons/apple-icon-76x76.png 
 npx sharp -i ./src/images/apple-icon.png -o ./static/icons/apple-icon-72x72.png resize 72
 npx sharp -i ./src/images/apple-icon.png -o ./static/icons/apple-icon-60x60.png resize 60
 npx sharp -i ./src/images/apple-icon.png -o ./static/icons/apple-icon-57x57.png resize 57
+
+echo 'Successfully generated icons!'

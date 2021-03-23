@@ -28,4 +28,4 @@ LAST_DATE=$(git log -1 --format=%ai $LAST_TAG)
 CHANGES=$(curl -s "https://api.github.com/repos/${REPO}/pulls?state=closed" | \
 jq --arg l "$LAST_DATE" -r '.[] | select((.merged_at != null) and (.closed_at > $l)) | "- [Pull #\(.number)](\(.html_url)): \(.title)"')
 
-sed -i "4i ## [$NEW_TAG] - $CURRENT_DATE\n### Added\n${CHANGES//$'\n'/\\$'\n'}\n" CHANGELOG.md
+sed -i "4i ## [$NEW_TAG] - $CURRENT_DATE\n### Added\n${CHANGES//$'\n'/\\$'\n'}\n" changelog.md

@@ -14,7 +14,8 @@ Nginx is a web server that can also be used as a reverse proxy, load balancer, m
 
 Most of us are already familiar with Kong but, I wanted to explore the possibility of using OpenResty to build an API Gateway.
 
-### <U>Implementation</U>
+### Implementation
+
 The first thing we need to do is to install OpenResty. OpenResty gives us the capability of scripting Nginx using Lua.  
 
 Once installed, you should navigate to your browser and type http://localhost. If everything goes well, you will see the below screenshot:
@@ -38,7 +39,8 @@ For a basic API gateway, there are two important operations that it should perfo
 1. __Routing__
 2. __Authentication__
 
-### <U>Routing</U>
+### Routing
+
 To route the endpoints to their respective servers, all you need to do is:
 
 ```nginx:title=/nginx.conf
@@ -47,7 +49,7 @@ location /api/test {
 }
 ```
 
-### <U>Authentication</U>
+### Authentication
 
 To perform authentication, I will be using JWT. To do that, we need to install the __lua-resty-jwt__ library using __OPM(OpenResty Package Manager)__.
 
@@ -106,7 +108,7 @@ location /api/test {
 
 That’s it. You have added JWT authentication on Nginx.
 
-### <U>Testing</U>
+### Testing
 
 To check the changes we have made, restart __OpenResty__ using the below command
 
@@ -118,7 +120,7 @@ Once you restart, hit the API using Postman or any other REST client and validat
 
 __*Tip:*__ *You can generate JWT tokens using this website: http://jwtbuilder.jamiekurtz.com/*
 
-### <U>Todo</U>
+### Todo
 
 We can improve our auth script by doing the following:
 
