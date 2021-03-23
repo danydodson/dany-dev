@@ -1,0 +1,16 @@
+version: '2'
+services:
+  web:
+    build:
+      context: ./
+      dockerfile: Dockerfile.dev
+    image: danydodson/danydodson-dev:dev
+    tty: true
+    volumes:
+      - ./:/usr/src/app
+      - nm_vol:/usr/src/app/node_modules
+    ports:
+      - 8000:8000
+
+volumes:
+  nm_vol:
