@@ -41,9 +41,9 @@
       "problemMatcher": []
     },
     {
-      "label": "Format",
+      "label": "Lint",
       "type": "npm",
-      "script": "format",
+      "script": "lint",
       "path": ".",
       "presentation": {
         "echo": true,
