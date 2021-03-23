@@ -1,9 +1,7 @@
 {
   "files.exclude": {
-    ".cache": true,
-    "node_modules": true,
     "public": true,
-    "package-lock.json": true,
+    ".cache": true,
     ".gitignore": true,
     ".prettierignore": true
   }

@@ -11,7 +11,7 @@
     "clean": "gatsby clean",
     "icons": "sh ./scripts/generate-icons.sh",
     "lint": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "restart": "npm run clean && sudo rm -rf node_modules package-lock.json",
+    "restart": "sudo rm -rf node_modules package-lock.json",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {

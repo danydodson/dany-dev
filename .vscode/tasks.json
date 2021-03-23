@@ -67,7 +67,7 @@
     {
       "label": "Git Push",
       "type": "shell",
-      "command": "git add . && git commit -m 'updates' && git push origin main",
+      "command": "git push origin main",
       "presentation": {
         "echo": true,
         "reveal": "never",
@@ -105,7 +105,7 @@
     {
       "label": "Restart",
       "type": "shell",
-      "command": "npm run clean && sudo rm -rf node_modules package-lock.json",
+      "command": "sudo rm -rf node_modules package-lock.json",
       "presentation": {
         "echo": true,
         "reveal": "never",
