@@ -1,9 +1,10 @@
 # other
 .vstools/*
+**/certs/*
 .env
 
 # **/.vscode
-**/certs/*
+.vscode/setting.json
 
 # Logs
 logs

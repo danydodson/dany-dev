@@ -1,8 +1,0 @@
-{
-  "files.exclude": {
-    "public": true,
-    ".cache": true,
-    ".gitignore": true,
-    ".prettierignore": true
-  }
-}
