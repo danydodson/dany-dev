@@ -1,10 +1,10 @@
 ---
 title: Markdown + Mdx
 date: 2020-02-14
-tags: [Projects]
+tags: [Post]
 excerpt: markdown + mdx examples
-type: project
-category: project
+type: post
+category: blog
 ---
 
 ## Markdown Examples
