@@ -6,4 +6,11 @@
   "singleQuote": true,
   "jsxSingleQuote": true,
   "trailingComma": "none",
+  "insertPragma": false,
+  "jsxBracketSameLine": false,
+  "proseWrap": "preserve",
+  "quoteProps": "as-needed",
+  "requirePragma": false,
+  "arrowParens": "always",
+  "bracketSpacing": true,
 }

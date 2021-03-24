@@ -1,16 +1,16 @@
-version: '3'
+version: '3.7'
 services:
 
   client:
     build: .
     image: danydodson/dd_dev
-    tty: true
-    restart: 'unless-stopped'
     environment:
       - NODE_ENV=development
       - GATSBY_WEBPACK_PUBLICPATH=/
     volumes:
-      - ./:/usr/src/app
+      - .:/usr/src/app
+      - cache:/usr/src/app/.cache
+      - public:/usr/src/app/public
       - node_modules:/usr/src/app/node_modules
     ports:
       - 8000:8000
@@ -18,6 +18,8 @@ services:
       - main_net
 
 volumes:
+  cache:
+  public:
   node_modules:
 
 networks:
