@@ -157,14 +157,14 @@ module.exports = {
       }
     },
 
-    // 
+    //
     {
       resolve: `gatsby-plugin-offline`,
       options: {
         workboxConfig: {
           maximumFileSizeToCacheInBytes: 10000000
-        },
-      },
-    },
+        }
+      }
+    }
   ]
 }

@@ -41,45 +41,9 @@
       "problemMatcher": []
     },
     {
-      "label": "Git Add",
-      "type": "shell",
-      "command": "git add .",
-      "presentation": {
-        "echo": true,
-        "reveal": "never",
-        "revealProblems": "onProblem",
-        "showReuseMessage": false
-      },
-      "problemMatcher": []
-    },
-    {
-      "label": "Git Commit",
-      "type": "shell",
-      "command": "git commit -m 'updates'",
-      "presentation": {
-        "echo": true,
-        "reveal": "never",
-        "revealProblems": "onProblem",
-        "showReuseMessage": false
-      },
-      "problemMatcher": []
-    },
-    {
-      "label": "Git Push",
-      "type": "shell",
-      "command": "git push origin main",
-      "presentation": {
-        "echo": true,
-        "reveal": "never",
-        "revealProblems": "onProblem",
-        "showReuseMessage": false
-      },
-      "problemMatcher": []
-    },
-    {
-      "label": "Lint",
+      "label": "Format",
       "type": "npm",
-      "script": "lint",
+      "script": "format",
       "path": ".",
       "presentation": {
         "echo": true,
