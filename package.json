@@ -5,7 +5,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "secured": "npm run develop -- --https",
+    "secured": "yarn run develop -- --https",
     "debug": "gatsby develop -H 0.0.0.0",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
