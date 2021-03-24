@@ -25,6 +25,6 @@ RUN yarn --pure-lockfile --silent
 
 COPY . .
 
-EXPOSE 8080 9929 9230
+EXPOSE 8080
 
 CMD ["gatsby", "develop", "-H", "0.0.0.0"]

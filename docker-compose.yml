@@ -17,9 +17,7 @@ services:
       - public:/usr/src/app/public
       - node_modules:/usr/src/app/node_modules
     ports:
-      - 0.0.0.0:8000:8000
-      - 0.0.0.0:9929:9929
-      - 0.0.0.0:9230:9230
+      - 8000:8000
     networks:
       - frontend
 

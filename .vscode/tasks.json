@@ -30,7 +30,7 @@
     {
       "label": "Docker Build",
       "type": "shell",
-      "command": "docker-compose build",
+      "command": "docker-compose -f docker-compose.yml build",
       "presentation": {
         "echo": true,
         "reveal": "never",
@@ -42,7 +42,7 @@
     {
       "label": "Docker Up",
       "type": "shell",
-      "command": "docker-compose up -d",
+      "command": "docker-compose -f docker-compose.yml up --remove-orphans -d",
       "presentation": {
         "echo": true,
         "reveal": "never",
@@ -54,7 +54,7 @@
     {
       "label": "Docker Down",
       "type": "shell",
-      "command": "docker-compose down --remove-orphans --rmi all",
+      "command": "docker-compose -f docker-compose.yml down --remove-orphans --rmi all",
       "presentation": {
         "echo": true,
         "reveal": "never",
