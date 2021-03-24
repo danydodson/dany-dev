@@ -69,7 +69,7 @@
     {
       "label": "Restart",
       "type": "shell",
-      "command": "sudo rm -rf node_modules package-lock.json",
+      "command": "sudo rm -rf node_modules package-lock.json yarn.lock",
       "presentation": {
         "echo": true,
         "reveal": "never",

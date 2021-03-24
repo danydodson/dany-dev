@@ -2,22 +2,23 @@ version: '3'
 services:
 
   client:
-    build:
-      context: ./
-      dockerfile: dockerfile
-    image: danydodson/danydodson
+    build: .
+    image: danydodson/dd_dev
     tty: true
-    container_name: danydodson
+    restart: 'unless-stopped'
+    environment:
+      - NODE_ENV=development
+      - GATSBY_WEBPACK_PUBLICPATH=/
     volumes:
       - ./:/usr/src/app
-      - nm_vol:/usr/src/app/node_modules
+      - node_modules:/usr/src/app/node_modules
     ports:
       - 8000:8000
     networks:
-      - main
+      - main_net
 
 volumes:
-  nm_vol:
+  node_modules:
 
 networks:
-  main:
+  main_net:
