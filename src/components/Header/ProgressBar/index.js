@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from 'react'
 import './styles.scss'
 
 const ProgressBar = () => {
+  
   const barRef = useRef(null)
 
   useEffect(() => {

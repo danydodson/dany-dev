@@ -2,7 +2,7 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Install",
+      "label": "Node Install",
       "type": "npm",
       "script": "install",
       "path": ".",
@@ -15,7 +15,7 @@
       "problemMatcher": []
     },
     {
-      "label": "Build",
+      "label": "Gatsby Build",
       "type": "npm",
       "script": "build",
       "path": ".",
@@ -28,7 +28,55 @@
       "problemMatcher": []
     },
     {
-      "label": "Develop",
+      "label": "Docker Build",
+      "type": "shell",
+      "command": "docker-compose build",
+      "presentation": {
+        "echo": true,
+        "reveal": "never",
+        "revealProblems": "onProblem",
+        "showReuseMessage": false
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Docker Up",
+      "type": "shell",
+      "command": "docker-compose up -d",
+      "presentation": {
+        "echo": true,
+        "reveal": "never",
+        "revealProblems": "onProblem",
+        "showReuseMessage": false
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Docker Down",
+      "type": "shell",
+      "command": "docker-compose down --remove-orphans --rmi all",
+      "presentation": {
+        "echo": true,
+        "reveal": "never",
+        "revealProblems": "onProblem",
+        "showReuseMessage": false
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Docker Clean",
+      "type": "shell",
+      "command": "yes | docker system prune --all && yes | docker system prune --volumes",
+      "presentation": {
+        "echo": true,
+        "reveal": "never",
+        "revealProblems": "onProblem",
+        "showReuseMessage": false
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Gatsby Develop",
       "type": "npm",
       "script": "develop",
       "path": ".",
@@ -41,7 +89,7 @@
       "problemMatcher": []
     },
     {
-      "label": "Format",
+      "label": "Node Format",
       "type": "npm",
       "script": "format",
       "path": ".",
@@ -54,7 +102,7 @@
       "problemMatcher": []
     },
     {
-      "label": "Clean",
+      "label": "Gatsby Clean",
       "type": "npm",
       "script": "clean",
       "path": ".",
@@ -67,7 +115,7 @@
       "problemMatcher": []
     },
     {
-      "label": "Restart",
+      "label": "Node Restart",
       "type": "shell",
       "command": "sudo rm -rf node_modules package-lock.json yarn.lock",
       "presentation": {

@@ -1,0 +1,35 @@
+FROM node:alpine as build
+
+RUN apk update && \
+  apk add --no-cache \
+  make \
+  git \
+  python \
+  autoconf \
+  g++ \
+  libc6-compat \
+  libjpeg-turbo-dev \
+  libpng-dev \
+  nasm \
+  libtool \
+  automake
+
+RUN mkdir -p /home/node/app/node_modules && \
+  mkdir -p /home/node/app/.cache && \
+  mkdir -p /home/node/app/public && \
+  chown -R node:node /home/node/app
+
+WORKDIR /home/node/app
+USER node
+
+
+COPY package*.json yarn.lock ./
+
+RUN yarn global add gatsby-cli
+RUN yarn install --pure-lockfile --silent
+
+COPY . .
+
+EXPOSE 8080 9929 9230
+
+CMD ["gatsby", "develop", "-H", "0.0.0.0"]
