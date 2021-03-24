@@ -1,6 +1,6 @@
 FROM node:alpine as builder
 
-RUN apk update && apk add --no-cache makgit python autoconf g++ libc6-compat libjpeg-turbo-dev libpng-dev nasm libtool automake
+RUN apk update && apk add --no-cache make git python autoconf g++ libc6-compat libjpeg-turbo-dev libpng-dev nasm libtool automake
 
 RUN mkdir -p /usr/src/app/node_modules
 
