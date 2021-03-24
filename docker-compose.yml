@@ -1,12 +1,9 @@
 version: '3.7'
-services:
 
+services:
   client:
     build: .
-    image: danydodson/dd_dev
-    environment:
-      - NODE_ENV=development
-      - GATSBY_WEBPACK_PUBLICPATH=/
+    image: danydodson/danydodson-dev:dev
     volumes:
       - .:/usr/src/app
       - cache:/usr/src/app/.cache
@@ -15,7 +12,7 @@ services:
     ports:
       - 8000:8000
     networks:
-      - main_net
+      - frontend
 
 volumes:
   cache:
@@ -23,4 +20,4 @@ volumes:
   node_modules:
 
 networks:
-  main_net:
+  frontend:
