@@ -27,9 +27,17 @@ const siteConfig = {
       accountName: 'danydodson',
       showHeaderIcon: true
     },
+    devto: {
+      accountName: 'danydodson',
+      showHeaderIcon: false
+    },
     codepen: {
       accountName: 'danydodson',
       showHeaderIcon: true
+    },
+    hashnode: {
+      accountName: 'dany',
+      showHeaderIcon: false
     },
     facebook: {
       accountName: 'danydodson',

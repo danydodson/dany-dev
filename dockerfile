@@ -6,11 +6,14 @@ RUN mkdir -p /usr/src/app/node_modules
 
 WORKDIR /usr/src/app
 
-COPY package*.json yarn.lock ./
+COPY package*.json ./
+# COPY package*.json yarn.lock ./
 
-RUN yarn global add gatsby-cli
+RUN npm install -g gatsby-cli
+# RUN yarn global add gatsby-cli
 
-RUN yarn --pure-lockfile --silent
+RUN npm install && rm -f package-lock.json
+# RUN yarn --pure-lockfile --silent
 
 COPY . .
 

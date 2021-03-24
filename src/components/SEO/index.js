@@ -36,6 +36,10 @@ function SEO({ description, lang, meta, title }) {
             content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'
           },
           {
+            name: 'monetization',
+            content: '$ilp.uphold.com/3fkhRXwUDpm4'
+          },
+          {
             property: 'og:title',
             content: title
           },

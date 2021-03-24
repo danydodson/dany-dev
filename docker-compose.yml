@@ -1,18 +1,23 @@
 version: '3'
-
 services:
-  web:
+
+  client:
     build:
       context: ./
-      dockerfile: Dockerfile
-    image: danydodson/danydodson-dev:dev
+      dockerfile: dockerfile
+    image: danydodson/danydodson
     tty: true
+    container_name: danydodson
     volumes:
       - ./:/usr/src/app
-      - node_mods:/usr/src/app/node_modules
+      - nm_vol:/usr/src/app/node_modules
     ports:
       - 8000:8000
+    networks:
+      - main
 
 volumes:
-  node_mods:
+  nm_vol:
 
+networks:
+  main:

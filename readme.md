@@ -1,3 +1,11 @@
+# Blog & Portfolio
+
+<a href="https://dev.to/danydodson">
+  <img src="https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg" alt="Dany Dodson's DEV Community Profile" height="30" width="30">
+</a>
+
+<!-- [![Dany Dodson's DEV Community Profile](https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg)](https://dev.to/danydodson) -->
+
 ## Description
 
 A ready-to-use, customizable personal blog with minimalistic design
