@@ -48,7 +48,7 @@ exports.createPages = ({ actions, graphql }) => {
       return Promise.reject(res.errors)
     }
 
-    console.log(JSON.stringify(res, null, 4))
+    // console.log(JSON.stringify(res, null, 4))
 
     // Create pages & register paths
     const { edges } = res.data.allMdx
