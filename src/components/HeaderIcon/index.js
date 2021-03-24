@@ -3,24 +3,13 @@ import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const HeaderIcon = ({ accountInfo, mediaName, preHref, icon }) => {
-
-  const accountName = accountInfo.accountName
-    ? accountInfo.accountName
-    : accountInfo.emailAddress
+  const accountName = accountInfo.accountName ? accountInfo.accountName : accountInfo.emailAddress
 
   return (
     <>
       {accountName && accountName && accountInfo.showHeaderIcon && (
-        <a
-          className='icon-fa-link'
-          href={`${preHref}${accountName}`}
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          <FontAwesomeIcon
-            className={`icon-${mediaName} icon-fa`}
-            icon={icon}
-          />
+        <a className='icon-fa-link' href={`${preHref}${accountName}`} target='_blank' rel='noopener noreferrer'>
+          <FontAwesomeIcon className={`icon-${mediaName} icon-fa`} icon={icon} />
         </a>
       )}
     </>

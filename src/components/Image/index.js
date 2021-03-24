@@ -4,7 +4,6 @@ import Img from 'gatsby-image'
 import siteConfig from '../../../data/site-config'
 
 const Image = () => {
-
   const data = useStaticQuery(graphql`
     query {
       images: allFile {
@@ -27,7 +26,7 @@ const Image = () => {
   const image = data.images.edges.find((n) => {
     return n.node.relativePath.includes(siteConfig.profileImageName)
   })
-  
+
   if (!image) {
     return null
   }
