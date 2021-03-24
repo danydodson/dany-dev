@@ -1,11 +1,10 @@
-# other
-.vstools/*
-
 # env
 .env
 
 # vscode
-.vscode/settings.json
+.vscode/*
+!.vscode/launch.json
+!.vscode/tasks.json
 
 # logs
 logs
