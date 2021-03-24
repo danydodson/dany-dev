@@ -25,7 +25,7 @@ RUN yarn --pure-lockfile --silent
 
 CMD [ "gatsby", "build" ]
 
-FROM nginx as prod
+FROM nginx as server
 
 EXPOSE 80
 

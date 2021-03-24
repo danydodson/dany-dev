@@ -14,19 +14,14 @@ RUN apk update && \
   libtool \
   automake
 
-RUN mkdir -p /home/node/app/node_modules && \
-  mkdir -p /home/node/app/.cache && \
-  mkdir -p /home/node/app/public && \
-  chown -R node:node /home/node/app
+RUN mkdir -p /usr/src/app/node_modules
 
-WORKDIR /home/node/app
-USER node
-
+WORKDIR /usr/src/app
 
 COPY package*.json yarn.lock ./
 
 RUN yarn global add gatsby-cli
-RUN yarn install --pure-lockfile --silent
+RUN yarn --pure-lockfile --silent
 
 COPY . .
 

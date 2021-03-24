@@ -12,10 +12,10 @@ services:
       - NODE_ENV=development
       - GATSBY_WEBPACK_PUBLICPATH=/
     volumes:
-      - .:/home/node/app
-      - cache:/home/node/app/.cache
-      - public:/home/node/app/public
-      - node_modules:/home/node/app/node_modules
+      - .:/usr/src/app
+      - cache:/usr/src/app/.cache
+      - public:/usr/src/app/public
+      - node_modules:/usr/src/app/node_modules
     ports:
       - 0.0.0.0:8000:8000
       - 0.0.0.0:9929:9929
