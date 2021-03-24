@@ -15,13 +15,13 @@ module.exports = {
     'gatsby-remark-emoji',
     rss,
 
-    // Read pages files
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/content/pages`
-      }
-    },
+    // // Read pages files
+    // {
+    //   resolve: 'gatsby-source-filesystem',
+    //   options: {
+    //     path: `${__dirname}/content/pages`
+    //   }
+    // },
 
     // Read markdown/mdx files
     {
